@@ -1,0 +1,27 @@
+{
+  "name": "eod-uaa-parser",
+  "version": "1.0.0",
+  "description": "Engineering on Display Parser for University of Alaska Anchorage.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "UAA",
+    "CSV",
+    "Parser",
+    "Engineering",
+    "and",
+    "Industry",
+    "Building",
+    "College",
+    "of",
+    "Engineering",
+    "University",
+    "of",
+    "Alaska",
+    "Anchorage"
+  ],
+  "author": "Terrance Mount",
+  "license": "ISC"
+}
