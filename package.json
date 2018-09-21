@@ -4,24 +4,61 @@
   "description": "Engineering on Display Parser for University of Alaska Anchorage.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mock": "node app.js --mock"
+  },
+  "dependencies": {
+    "csv-parser": "1.12.1",
+    "dotenv": "6.0.0",
+    "read-excel-file": "2.0.2",
+    "request": "2.88.0",
+    "verror": "1.10.0"
   },
   "keywords": [
     "UAA",
     "CSV",
     "Parser",
     "Engineering",
-    "and",
     "Industry",
     "Building",
+    "EIB",
     "College",
-    "of",
-    "Engineering",
+    "CoE",
     "University",
-    "of",
     "Alaska",
     "Anchorage"
   ],
   "author": "Terrance Mount",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "10.6.0",
+    "npm": "6.1.0"
+  },
+  "parsernamelookup": [
+    {
+      "sensorname": "electrical",
+      "siemensname": "MDP.DEM.CONS.ENG.OD"
+    },
+    {
+      "sensorname": "naturalgas",
+      "siemensname": "NGM1.ENG.OD"
+    },
+    {
+      "sensorname": "temperature",
+      "siemensname": "OSAT"
+    },
+    {
+      "sensorname": "water",
+      "siemensname": "H2OM1.ENG.OD"
+    },
+    {
+      "sensorname": "water",
+      "siemensname": "H2OM2.ENG.OD"
+    }
+  ],
+  "parserlookupdir": [
+    "C:/code/eod-uaa-parser/siemens"
+  ]
+  
 }

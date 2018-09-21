@@ -10,6 +10,7 @@
 
 #generated local store
 localstore.json
+/siemens
 
 # dependencies
 /node_modules
