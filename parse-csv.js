@@ -4,7 +4,6 @@ const assert = require('assert');
 const VError = require('verror');
 const parserConfig = require('./parser-config');
 
-
 /**
  * Open file and proccess out the csv information and callback with JSON data. File will be deleted before callback is invoked.
  * @param {String} fullFilename path to the file.
@@ -30,18 +29,17 @@ module.exports = function (fullFileName, callback) {
   .pipe(csv({headers: ['name', 'x', 'x', 'x', 'value', 'x', 'x']}))
   .on('data', (data) => {
 
-    //check to see if building code was set.
-    if(!json.buildingcode){
-      json.buildingcode = data.name.split('.',1)[0]; //cell A1 needs to contain the building code
-    }
-
     const number = Number.parseFloat(data.value);
     const name = parserConfig.getSensorName(data.name);
 
     if(name && number !== NaN && number > 0){
       json[name] =  number;
+      
+      //check to see if building code was set
+      if(!json.buildingcode) {
+        json.buildingcode = data.name.split('.',1)[0]; //name needs to be in the first column of the first valid entry row.
+      }
     }
-
   })
   .on('end', ()=>{
     //try to delete file.

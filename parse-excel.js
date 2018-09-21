@@ -27,7 +27,7 @@ module.exports = function (fullFileName, callback) {
 
     //create json
     let json = {
-      buildingcode: rows[0][0].split('.', 1)[0],
+      buildingcode: null,
       datetime: Math.trunc(Date.now() / 1000 / 60) * 60 * 1000 //round to nearest minute.
     };
 
@@ -38,6 +38,10 @@ module.exports = function (fullFileName, callback) {
 
       if(name && number !== NaN && number > 0){
         json[name] = number;
+
+        if(!json.buildingcode){
+          json.buildingcode = row[0].split('.', 1)[0];
+        }
       }
     });
 
